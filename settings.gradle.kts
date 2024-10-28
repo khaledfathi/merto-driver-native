@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "metro_driver_native"
 include(":app")
- 
+include(":core")
