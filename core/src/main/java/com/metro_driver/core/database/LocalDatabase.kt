@@ -6,17 +6,19 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.metro_driver.core.DATABASE_NAME
 import com.metro_driver.core.database.dao.TravelDao
+import com.metro_driver.core.database.entity.TravelModel
 
-@Database(entities = [TravelDao::class] , version = 1)
+@Database(entities = [TravelModel::class], version = 1)
 abstract class LocalDatabase : RoomDatabase() {
-    abstract fun TravelDao(): TravelDao
-    var db: LocalDatabase? = null
+    abstract fun travelDao(): TravelDao
 
     companion object {
-        fun getInstance(context: Context) {
-            val db = Room.databaseBuilder(
+        private var _db: LocalDatabase? = null
+        fun getInstance(context: Context): LocalDatabase {
+            return _db ?: Room.databaseBuilder(
                 context,
-                LocalDatabase::class.java, DATABASE_NAME
+                LocalDatabase::class.java,
+                DATABASE_NAME
             ).allowMainThreadQueries().build()
         }
     }

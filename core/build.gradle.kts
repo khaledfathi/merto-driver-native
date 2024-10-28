@@ -43,9 +43,9 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     //room
     val room_version = "2.6.1"
-    implementation("androidx.room:room-runtime:$room_version")
+    api("androidx.room:room-runtime:$room_version")
     annotationProcessor("androidx.room:room-compiler:$room_version")
 
-//    // To use Kotlin Symbol Processing (KSP)
-//    ksp("androidx.room:room-compiler:$room_version")
+//     To use Kotlin Symbol PannotationProcessorrocessing (KSP)
+    ksp("androidx.room:room-compiler:$room_version")
 }

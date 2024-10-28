@@ -1,7 +1,7 @@
 package com.metro_driver.app.domain.entity
 
 data class TravelEntity(
-    val id: Int? ,
+    val id: Int? = null,
     val date: String? = null,
     val time: String? = null,
     val travelNumber: Int? = null,

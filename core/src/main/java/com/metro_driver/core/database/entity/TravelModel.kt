@@ -4,10 +4,10 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity
+@Entity("travels")
 data class TravelModel(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    @ColumnInfo("data") val date: String? = null,
+    @ColumnInfo("date") val date: String? = null,
     @ColumnInfo("time") val time: String? = null,
     @ColumnInfo("travel_number") val travelNumber: Int? = null,
     @ColumnInfo("unit_a") val unitA: Int? = null,
