@@ -3,23 +3,16 @@ package com.metro_driver.app.presentation.activity
 import android.content.Context
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.get
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.ViewModelProvider
 import com.metro_driver.app.R
-import com.metro_driver.app.data.pref_datastore.Preferences
 import com.metro_driver.app.databinding.ActivityMainBinding
 import com.metro_driver.app.presentation.fragments.TravelsListFragment
 import com.metro_driver.app.presentation.viewmodel.MainActivityViewModel
 import com.metro_driver.core.general.DATASTORE_FILE
-import com.metro_driver.core.general.debugPrint
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.runBlocking
 
 //prepare datastore
 val Context.dataStore by preferencesDataStore(DATASTORE_FILE)

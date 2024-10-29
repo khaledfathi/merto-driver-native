@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.metro_driver.app.R
 import com.metro_driver.app.databinding.FragmentTravelsListBinding
 import com.metro_driver.app.domain.entity.TravelEntity
 import com.metro_driver.app.presentation.adapter.TravelsAdapter
