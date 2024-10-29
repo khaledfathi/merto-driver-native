@@ -4,11 +4,15 @@ import com.metro_driver.app.domain.entity.TravelEntity
 import com.metro_driver.app.domain.repository.TravelRepository
 
 class UpdateTravelUseCase(private val repository: TravelRepository) {
-    suspend fun update(travel:TravelEntity , onSuccess:(updatedCount:Int)->Unit , onFailure: (error:String)->Unit){
+    suspend fun update(
+        travel: TravelEntity,
+        onSuccess: (updatedCount: Int) -> Unit,
+        onFailure: (error: String) -> Unit
+    ) {
         try {
-            val updatedCount = repository.update(travel)
-            onSuccess(updatedCount)
-        }catch (e:Exception){
+
+            onSuccess(repository.update(travel))
+        } catch (e: Exception) {
             onFailure(e.message.toString())
         }
     }

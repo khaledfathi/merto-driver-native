@@ -14,7 +14,7 @@ interface TravelDao {
     @Query("SELECT * FROM travels WHERE id = (:id)")
     fun getById(id: Int): TravelModel?
 
-    @Query("SELECT * FROM travels WHERE date = (:date) ORDER BY date ASC")
+    @Query("SELECT * FROM travels WHERE strftime('%Y-%m-%d', date) = (:date) ORDER BY strftime('%H:%M:%S', time) ASC ")
     fun getByDate(date: String): List<TravelModel>
 
     @Query("SELECT * FROM travels WHERE date BETWEEN (:startDate) AND (:endDate) ORDER BY date ASC")
@@ -29,6 +29,6 @@ interface TravelDao {
     @Query("DELETE FROM travels WHERE id = (:id)")
     fun deleteById(id: Int): Int
 
-    @Query("DELETE FROM travels WHERE date = (:date)")
+    @Query("DELETE FROM travels WHERE  strftime('%Y-%m-%d', date) = (:date)")
     fun deleteByDate(date: String): Int
 }

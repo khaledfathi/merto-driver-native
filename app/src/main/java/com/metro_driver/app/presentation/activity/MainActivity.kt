@@ -1,25 +1,29 @@
 package com.metro_driver.app.presentation.activity
 
+import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.get
+import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.ViewModelProvider
-import com.metro_driver.app.data.repository.TravelRepositoryImp
+import com.metro_driver.app.R
+import com.metro_driver.app.data.pref_datastore.Preferences
 import com.metro_driver.app.databinding.ActivityMainBinding
-import com.metro_driver.app.domain.entity.TravelEntity
-import com.metro_driver.app.domain.usecase.AddTravelUseCase
 import com.metro_driver.app.presentation.viewmodel.MainActivityViewModel
-import com.metro_driver.core.R
-import com.metro_driver.core.general.DateTime
-import com.metro_driver.core.general.Debug
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
+import com.metro_driver.core.general.DATASTORE_FILE
+import com.metro_driver.core.general.debugPrint
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.runBlocking
 
-class MainActivity : AppCompatActivity() {
+//prepare datastore
+val Context.dataStore by preferencesDataStore(DATASTORE_FILE)
+
+class MainActivity : BaseActivity() {
     private lateinit var _binding: ActivityMainBinding
     private lateinit var _viewModel: MainActivityViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,32 +37,37 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        Debug.print(
-            resources.getText(R.string.month_1)
-        )
         init()
     }
 
     private fun init() {
-        _binding.todayButton.setOnClickListener {
-            val data = TravelEntity(
-                date = DateTime().getCurrentISODate(),
-                time = DateTime().getCurrentISOTime(),
-                travelNumber = 100,
-                unitA = 14,
-                unitB = 30,
-                unitC = 55,
-                notes = "notes aaa "
-            )
-            _viewModel.addTravel(
-                context = this,
-                travel = data,
-                onSuccess = { recordId ->
-                    Debug.print(recordId)
-                },
-                onFailure = { error ->
-                    Debug.print(error)
-                })
+        setTheme()
+        eventToolbarThemModeButtonClick()
+        eventTest()
+    }
+
+    private fun setTheme() {
+        _viewModel.getNightModeState(this)
+        _binding.toolbar.menu[0].setIcon(_viewModel.themIcon)
+    }
+
+    /***** Events *****/
+    private fun eventToolbarThemModeButtonClick() {
+        _binding.toolbar.menu[0].setOnMenuItemClickListener {
+            _viewModel.toggleNightAndDayMode(this)
+            _viewModel.getNightModeState(this)
+            true
         }
     }
+    /***** -END- Events *****/
+
+    /********** FOR TEST **********/
+    private fun eventTest() {
+        _binding.todayButton.setOnClickListener {
+        }
+    }
+
+    private fun actionTest() {
+    }
+    /********** -END- FOR TEST **********/
 }
