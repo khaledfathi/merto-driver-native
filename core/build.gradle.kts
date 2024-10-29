@@ -31,6 +31,13 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+    sourceSets {
+        getByName("main") {
+            res {
+                srcDirs("src/main/res")
+            }
+        }
+    }
 }
 
 dependencies {
@@ -41,11 +48,9 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    //room
+    //
     val room_version = "2.6.1"
     api("androidx.room:room-runtime:$room_version")
-    annotationProcessor("androidx.room:room-compiler:$room_version")
-
-//     To use Kotlin Symbol PannotationProcessorrocessing (KSP)
+    //
     ksp("androidx.room:room-compiler:$room_version")
 }

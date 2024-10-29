@@ -3,8 +3,14 @@ package com.metro_driver.app.domain.usecase
 import com.metro_driver.app.domain.entity.TravelEntity
 import com.metro_driver.app.domain.repository.TravelRepository
 
-class UpdateTravelUseCase(val repository: TravelRepository) {
-    fun update(data:TravelEntity , onSuccess:()->Unit , onFailure: (error:String)->Unit){
+class UpdateTravelUseCase(private val repository: TravelRepository) {
+    suspend fun update(travel:TravelEntity , onSuccess:(updatedCount:Int)->Unit , onFailure: (error:String)->Unit){
+        try {
+            val updatedCount = repository.update(travel)
+            onSuccess(updatedCount)
+        }catch (e:Exception){
+            onFailure(e.message.toString())
+        }
     }
 
 }

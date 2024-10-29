@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="month_1">يناير</string>
+    <string name="month_2">فبراير</string>
+    <string name="month_3">مارس</string>
+    <string name="month_4">ابريل</string>
+    <string name="month_5">مايو</string>
+    <string name="month_6">يونيو</string>
+    <string name="month_7">يوليو</string>
+    <string name="month_8">اغسطس</string>
+    <string name="month_9">سبتمبر</string>
+    <string name="month_10">اكتوبر</string>
+    <string name="month_11">نوفمبر</string>
+    <string name="month_12">ديسمبر</string>
+
+    <string-array name="months" >
+        <item>@string/month_1</item>
+        <item>@string/month_2</item>
+        <item>@string/month_3</item>
+        <item>@string/month_4</item>
+        <item>@string/month_5</item>
+        <item>@string/month_6</item>
+        <item>@string/month_7</item>
+        <item>@string/month_8</item>
+        <item>@string/month_9</item>
+        <item>@string/month_10</item>
+        <item>@string/month_11</item>
+        <item>@string/month_12</item>
+    </string-array>
+
+</resources>

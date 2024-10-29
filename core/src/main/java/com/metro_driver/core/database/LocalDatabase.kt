@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.metro_driver.core.DATABASE_NAME
+import com.metro_driver.core.general.DATABASE_NAME
 import com.metro_driver.core.database.dao.TravelDao
 import com.metro_driver.core.database.entity.TravelModel
 
@@ -15,11 +15,13 @@ abstract class LocalDatabase : RoomDatabase() {
     companion object {
         private var _db: LocalDatabase? = null
         fun getInstance(context: Context): LocalDatabase {
-            return _db ?: Room.databaseBuilder(
-                context,
-                LocalDatabase::class.java,
-                DATABASE_NAME
-            ).allowMainThreadQueries().build()
+            return _db ?: synchronized("lock") {
+                Room.databaseBuilder(
+                    context,
+                    LocalDatabase::class.java,
+                    DATABASE_NAME
+                ).build()
+            }
         }
     }
 }
