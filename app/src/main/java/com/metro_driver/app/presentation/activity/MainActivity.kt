@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.metro_driver.app.R
 import com.metro_driver.app.data.pref_datastore.Preferences
 import com.metro_driver.app.databinding.ActivityMainBinding
+import com.metro_driver.app.presentation.fragments.TravelsListFragment
 import com.metro_driver.app.presentation.viewmodel.MainActivityViewModel
 import com.metro_driver.core.general.DATASTORE_FILE
 import com.metro_driver.core.general.debugPrint
@@ -40,6 +41,7 @@ class MainActivity : BaseActivity() {
         init()
     }
 
+    /***** Core *****/
     private fun init() {
         setTheme()
         eventToolbarThemModeButtonClick()
@@ -50,6 +52,7 @@ class MainActivity : BaseActivity() {
         _viewModel.getNightModeState(this)
         _binding.toolbar.menu[0].setIcon(_viewModel.themIcon)
     }
+    /***** -END- Core *****/
 
     /***** Events *****/
     private fun eventToolbarThemModeButtonClick() {
@@ -64,10 +67,13 @@ class MainActivity : BaseActivity() {
     /********** FOR TEST **********/
     private fun eventTest() {
         _binding.todayButton.setOnClickListener {
+            actionTest()
         }
     }
 
     private fun actionTest() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.travels_list_fragment_container, TravelsListFragment()).commit()
     }
     /********** -END- FOR TEST **********/
 }
