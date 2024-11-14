@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="blue">#FF0000FF</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="toolbar_bg">#2EAEFF</color>
+    <color name="color_1">#3369ff</color>
+    <color name="travel_number_fg">#ffffffff</color>
+    <color name="travel_block_bg">#33000000</color>
+</resources>
