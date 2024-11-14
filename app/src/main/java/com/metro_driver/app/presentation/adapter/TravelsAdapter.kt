@@ -1,14 +1,15 @@
 package com.metro_driver.app.presentation.adapter
 
-import android.content.Context
+import android.app.Activity
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.metro_driver.app.R
 import com.metro_driver.app.databinding.CardTravelBinding
 import com.metro_driver.app.domain.entity.TravelEntity
 
-class TravelsAdapter(val context: Context, val data: List<TravelEntity>) :
+class TravelsAdapter(val context: Activity, val data: List<TravelEntity>) :
     RecyclerView.Adapter<TravelsAdapter.VH>() {
     class VH(val view: CardTravelBinding) : RecyclerView.ViewHolder(view.root)
 
@@ -28,6 +29,10 @@ class TravelsAdapter(val context: Context, val data: List<TravelEntity>) :
         if (data[position].notes != null) {
             holder.view.note.setImageResource(R.drawable.warning_icon)
         }
+        holder.view.root.setOnClickListener {
+            holder.view.root.findNavController().navigate(R.id.action_homeFragment_to_editTravelFragment)
+        }
     }
+
 
 }

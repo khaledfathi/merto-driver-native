@@ -54,5 +54,15 @@ dependencies {
     //manual
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation("io.github.khaledfathi:scroll_date_picker:0.1.1")
+    //
+    val nav_version = "2.8.4"
+    // Views/Fragments integration
+    implementation("androidx.navigation:navigation-fragment:$nav_version")
+    implementation("androidx.navigation:navigation-ui:$nav_version")
+
+    // Feature module support for Fragments
+    implementation("androidx.navigation:navigation-dynamic-features-fragment:$nav_version")
+    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
+
 
 }

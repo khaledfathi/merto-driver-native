@@ -1,7 +1,6 @@
 package com.metro_driver.app.presentation.activity
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
@@ -11,10 +10,7 @@ import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.ViewModelProvider
 import com.metro_driver.app.databinding.ActivityMainBinding
 import com.metro_driver.app.presentation.viewmodel.MainActivityViewModel
-import com.metro_driver.app.presentation.fragments.TravelsListFragment
-import com.metro_driver.app.presentation.viewmodel.AddNewTravelActivityViewModel
 import com.metro_driver.core.general.DATASTORE_FILE
-import com.metro_driver.core.general.debugPrint
 
 //prepare datastore
 val Context.dataStore by preferencesDataStore(DATASTORE_FILE)
@@ -38,13 +34,11 @@ class MainActivity : BaseActivity() {
         init()
     }
 
-    /*##### Core #####*/
 
+    /*##### CORE #####*/
     private fun init() {
         setNightModeState()
-        //events
         eventToolbarNightModeButtonClick()
-        eventOnDateChange()
     }
 
     /**
@@ -54,7 +48,7 @@ class MainActivity : BaseActivity() {
         _viewModel.setNightModeState(this)
         _binding.toolbar.menu[0].setIcon(_viewModel.themIcon)
     }
-    /*##### -END- Core #####*/
+
 
     /*##### Events #####*/
     private fun eventToolbarNightModeButtonClick() {
@@ -63,14 +57,4 @@ class MainActivity : BaseActivity() {
             true
         }
     }
-
-    private fun eventOnDateChange() {
-        _binding.datePicker.setOnDateChange { date ->
-            debugPrint(date)
-            supportFragmentManager.beginTransaction()
-                .replace(_binding.travelsListFragmentContainer.id, TravelsListFragment()).commit()
-        }
-    }
-
-    /*##### -END- Events #####*/
 }
