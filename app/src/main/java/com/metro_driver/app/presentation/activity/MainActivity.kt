@@ -1,6 +1,7 @@
 package com.metro_driver.app.presentation.activity
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
@@ -11,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.metro_driver.app.databinding.ActivityMainBinding
 import com.metro_driver.app.presentation.viewmodel.MainActivityViewModel
 import com.metro_driver.app.presentation.fragments.TravelsListFragment
+import com.metro_driver.app.presentation.viewmodel.AddNewTravelActivityViewModel
 import com.metro_driver.core.general.DATASTORE_FILE
 import com.metro_driver.core.general.debugPrint
 
@@ -20,6 +22,8 @@ val Context.dataStore by preferencesDataStore(DATASTORE_FILE)
 class MainActivity : BaseActivity() {
     private lateinit var _binding: ActivityMainBinding
     private lateinit var _viewModel: MainActivityViewModel
+
+    //
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -34,47 +38,39 @@ class MainActivity : BaseActivity() {
         init()
     }
 
-    /***** Core *****/
+    /*##### Core #####*/
+
     private fun init() {
-        setTheme()
-        datePickerSetup()
-        eventToolbarThemModeButtonClick()
-        eventTest()
-        _binding.datePicker.setOnDateChange { date ->
-            debugPrint(date.dayName)
-        }
+        setNightModeState()
+        //events
+        eventToolbarNightModeButtonClick()
+        eventOnDateChange()
     }
 
-    private fun datePickerSetup() {
-//        _binding.datePicker.setDateRange(
-//             2025,11, 1,
-//            2025, 12, 31
-//        )
-    }
-
-    private fun setTheme() {
-        _viewModel.getNightModeState(this)
+    /**
+     * read current night mode status ,then apply it to whole app UI
+     */
+    private fun setNightModeState() {
+        _viewModel.setNightModeState(this)
         _binding.toolbar.menu[0].setIcon(_viewModel.themIcon)
     }
-    /***** -END- Core *****/
+    /*##### -END- Core #####*/
 
-    /***** Events *****/
-    private fun eventToolbarThemModeButtonClick() {
+    /*##### Events #####*/
+    private fun eventToolbarNightModeButtonClick() {
         _binding.toolbar.menu[0].setOnMenuItemClickListener {
             _viewModel.toggleNightAndDayMode(this)
-            _viewModel.getNightModeState(this)
             true
         }
     }
-    /***** -END- Events *****/
 
-    /********** FOR TEST **********/
-    private fun eventTest() {
+    private fun eventOnDateChange() {
         _binding.datePicker.setOnDateChange { date ->
             debugPrint(date)
             supportFragmentManager.beginTransaction()
                 .replace(_binding.travelsListFragmentContainer.id, TravelsListFragment()).commit()
         }
     }
-    /********** -END- FOR TEST **********/
+
+    /*##### -END- Events #####*/
 }

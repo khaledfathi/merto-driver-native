@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:nestedScrollingEnabled="true"
     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
     tools:context=".presentation.fragments.TravelsListFragment"
     tools:itemCount="40"

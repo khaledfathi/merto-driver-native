@@ -18,7 +18,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
 class MainActivityViewModel : ViewModel() {
-    var isNightMode = false
+    private var isNightMode = false
     var themIcon = R.drawable.night_mode_icon
     fun addTravel(
         context: Context, travel: TravelEntity,
@@ -34,17 +34,17 @@ class MainActivityViewModel : ViewModel() {
         }
     }
 
-    fun toggleNightAndDayMode(context: Context): Boolean {
+    fun toggleNightAndDayMode(context: Context) {
         runBlocking {
             context.dataStore.edit { settings ->
                 isNightMode = settings[Preferences.NIGHT_MODE] ?: false
                 settings[Preferences.NIGHT_MODE] = !isNightMode
             }
         }
-        return isNightMode
+        setNightModeState(context)
     }
 
-    fun getNightModeState(context: Context) {
+    fun setNightModeState(context: Context) {
         //read state of night mode from datastore
         isNightMode = runBlocking {
             context.dataStore.data.map { pref ->
