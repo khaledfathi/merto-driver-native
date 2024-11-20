@@ -10,7 +10,6 @@ class UpdateTravelUseCase(private val repository: TravelRepository) {
         onFailure: (error: String) -> Unit
     ) {
         try {
-
             onSuccess(repository.update(travel))
         } catch (e: Exception) {
             onFailure(e.message.toString())

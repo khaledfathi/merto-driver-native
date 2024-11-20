@@ -3,6 +3,7 @@ package com.metro_driver.app.presentation.activity
 import android.content.Context
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.DrawableRes
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.get
@@ -46,7 +47,7 @@ class MainActivity : BaseActivity() {
      */
     private fun setNightModeState() {
         _viewModel.setNightModeState(this)
-        _binding.toolbar.menu[0].setIcon(_viewModel.themIcon)
+        _binding.toolbar.menu[0].setIcon(_viewModel.getThemeIcon())
     }
 
 
@@ -57,4 +58,5 @@ class MainActivity : BaseActivity() {
             true
         }
     }
+
 }

@@ -16,9 +16,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#33000000"
             android:layout_marginHorizontal="50dp"
             android:layout_marginTop="10dp"
+            android:background="#33000000"
             android:gravity="center"
             android:text="Ads section" />
     </FrameLayout>
@@ -76,6 +76,19 @@
 
     <!--Data section [fragment]-->
 
+    <TextView
+        android:id="@+id/nothing_found_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no_travels_found"
+        android:textSize="20sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/add_travel_floating_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider2"
+        tools:visibility="visible" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/travels_list_recycle_view"
         android:layout_width="match_parent"
@@ -83,7 +96,6 @@
         android:layout_marginHorizontal="10dp"
         android:layout_marginBottom="20dp"
         android:nestedScrollingEnabled="true"
-        android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@id/add_travel_floating_button"
         app:layout_constraintEnd_toEndOf="parent"
@@ -91,7 +103,7 @@
         app:layout_constraintTop_toBottomOf="@id/divider2"
         tools:context=".presentation.fragments.TravelsListFragment"
         tools:itemCount="40"
-        tools:listitem="@layout/card_travel"/>
+        tools:listitem="@layout/card_travel" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_travel_floating_button"

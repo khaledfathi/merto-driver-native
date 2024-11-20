@@ -9,13 +9,15 @@
         android:id="@+id/homeFragment"
         android:name="com.metro_driver.app.presentation.fragments.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_addTravelFragment"
             app:destination="@id/addTravelFragment" />
         <action
             android:id="@+id/action_homeFragment_to_editTravelFragment"
-            app:destination="@id/editTravelFragment" />
+            app:destination="@id/editTravelFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@animator/nav_default_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/addTravelFragment"
@@ -26,5 +28,36 @@
         android:id="@+id/editTravelFragment"
         android:name="com.metro_driver.app.presentation.fragments.EditTravelFragment"
         android:label="fragment_edit_travel"
-        tools:layout="@layout/fragment_edit_travel" />
+        tools:layout="@layout/fragment_edit_travel">
+        <argument
+            android:name="id"
+            android:defaultValue="-1"
+            app:argType="integer" />
+        <argument
+            android:name="travel_number"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="unit_a"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="unit_b"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="unit_c"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="notes"
+            app:argType="string"
+            app:nullable="true" />
+        <argument android:name="date"
+            app:argType="string"
+            app:nullable="true" />
+        <argument android:name="time"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
 </navigation>

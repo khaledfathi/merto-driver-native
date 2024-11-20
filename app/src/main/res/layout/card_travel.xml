@@ -58,6 +58,5 @@
         android:contentDescription="@string/icon_description"
         android:gravity="center"
         android:paddingVertical="5dp"
-        android:src="@drawable/warning_icon"
         tools:text="8h59" />
 </LinearLayout>

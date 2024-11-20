@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="semi_bar_icon_width">40dp</dimen>
+    <dimen name="semi_bar_icon_height">40dp</dimen>
+    <dimen name="prefix_icon_size">40dp</dimen>
+</resources>

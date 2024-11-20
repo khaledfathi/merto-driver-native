@@ -19,7 +19,8 @@ class TravelRepositoryImp(private val context: Context) : TravelRepository {
                         travelNumber = it.travelNumber,
                         unitA = it.unitA,
                         unitB = it.unitB,
-                        unitC = it.unitC
+                        unitC = it.unitC,
+                        notes = it.notes
                     )
                 )
             }
@@ -38,7 +39,8 @@ class TravelRepositoryImp(private val context: Context) : TravelRepository {
                         travelNumber = it.travelNumber,
                         unitA = it.unitA,
                         unitB = it.unitB,
-                        unitC = it.unitC
+                        unitC = it.unitC,
+                        notes = it.notes
                     )
                 )
             }
@@ -54,6 +56,7 @@ class TravelRepositoryImp(private val context: Context) : TravelRepository {
                 unitA = data.unitA,
                 unitB = data.unitB,
                 unitC = data.unitC,
+                notes = data.notes
             )
         ).first()
     }
@@ -61,13 +64,14 @@ class TravelRepositoryImp(private val context: Context) : TravelRepository {
     override fun update(data: TravelEntity): Int {
         return LocalDatabase.getInstance(context).travelDao().updateAll(
             TravelModel(
-                id = data.id ?: 0,
+                id = data.id!!,
                 date = data.date,
                 time = data.time,
                 travelNumber = data.travelNumber,
                 unitA = data.unitA,
                 unitB = data.unitB,
                 unitC = data.unitC,
+                notes = data.notes
             )
         )
     }

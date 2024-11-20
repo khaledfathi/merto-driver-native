@@ -3,4 +3,12 @@
     <string name="app_name">مساعد مترو</string>
     <string name="icon_description">ايكونة</string>
     <string name="today">اليوم</string>
+    <string name="add_travel">اضافة رحلة</string>
+    <string name="travel_number">رقم الرحلة</string>
+    <string name="car_a">عربة 1</string>
+    <string name="car_b">عربة 2</string>
+    <string name="car_c">عربة 3</string>
+    <string name="notes">ملاحظات</string>
+    <string name="edit_travel">تعديل رحلة</string>
+    <string name="no_travels_found">لم يتم العثور على رحلات</string>
 </resources>

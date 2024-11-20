@@ -2,7 +2,14 @@
     <string name="app_name">Metro Driver</string>
     <string name="icon_description">icon</string>
     <string name="today">Today</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_travel">Add Travel</string>
+    <string name="travel_number">Travel number</string>
+    <string name="car_a">Car 1</string>
+    <string name="car_b">Car 2</string>
+    <string name="car_c">Car 3</string>
+    <string name="notes">notes</string>
+    <string name="edit_travel">Edit Travel</string>
+    <string name="no_travels_found">No Travels Found</string>
+
 
 </resources>

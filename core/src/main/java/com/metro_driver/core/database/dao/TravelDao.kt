@@ -21,9 +21,9 @@ interface TravelDao {
     fun getByPeriod(startDate: String, endDate: String): List<TravelModel>
 
     @Insert()
-    fun insertAll(vararg users: TravelModel):List<Long>
+    fun insertAll(vararg users: TravelModel): List<Long>
 
-    @Update
+    @Update()
     fun updateAll(vararg users: TravelModel): Int
 
     @Query("DELETE FROM travels WHERE id = (:id)")
