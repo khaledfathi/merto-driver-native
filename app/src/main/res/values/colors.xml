@@ -7,4 +7,11 @@
     <color name="color_1">#3369ff</color>
     <color name="travel_number_fg">#ffffffff</color>
     <color name="travel_block_bg">#33000000</color>
+
+    <!--for vector asset-->
+    <color name="back_icon">#000000</color>
+    <color name="note_icon">#000000</color>
+    <color name="notes_icon">#000000</color>
+    <color name="train_icon">#000000</color>
+    <color name="train_units_icon">#000000</color>
 </resources>

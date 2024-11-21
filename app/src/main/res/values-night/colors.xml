@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--for vector asset-->
+    <color name="back_icon">#ffffff</color>
+    <color name="note_icon">#ffffff</color>
+    <color name="notes_icon">#ffffff</color>
+    <color name="train_icon">#ffffff</color>
+    <color name="train_units_icon">#ffffff</color>
+</resources>
