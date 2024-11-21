@@ -10,6 +10,10 @@
     <string name="notes">notes</string>
     <string name="edit_travel">Edit Travel</string>
     <string name="no_travels_found">No Travels Found</string>
+    <string name="OK">OK</string>
+    <string name="cancel">Cancle</string>
+    <string name="confirm_delete_travel_title">Delete Travel</string>
+    <string name="confirm_delete_travel_message">Are you sure ? </string>
 
 
 </resources>

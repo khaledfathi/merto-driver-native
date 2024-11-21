@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
+import com.metro_driver.app.R
 import com.metro_driver.app.databinding.FragmentEditTravelBinding
 import com.metro_driver.app.presentation.viewmodel.MainActivityViewModel
 import com.metro_driver.core.general.debugPrint
@@ -83,17 +84,22 @@ class EditTravelFragment : Fragment() {
 
     private fun eventDeleteButtonClick() {
         _binding.deleteImageButton.setOnClickListener {
-            _viewModel.deleteTravel(
-                context = _context,
-                id = _args.id.toString(),
-                onSuccess = {
-                    _activity.supportFragmentManager.popBackStack()
-                    debugPrint("Success deleted")
-                },
-                onFailure = { error ->
-                    debugPrint("error on delete : $error")
+            ConfirmDialog(
+                title = _activity.resources.getString(R.string.confirm_delete_travel_title) ,
+                message = _activity.resources.getString(R.string.confirm_delete_travel_message) ,
+                onYesPressed = {
+                    _viewModel.deleteTravel(
+                        context = _context,
+                        id = _args.id.toString(),
+                        onSuccess = {
+                            _activity.supportFragmentManager.popBackStack()
+                            debugPrint("Success deleted")
+                        },
+                        onFailure = { error ->
+                            debugPrint("error on delete : $error")
+                        })
                 }
-            )
+            ).show(_activity.supportFragmentManager, ConfirmDialog.DELETE_TRAVEL)
         }
     }
 }

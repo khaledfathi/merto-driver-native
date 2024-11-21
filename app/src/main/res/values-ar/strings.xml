@@ -11,4 +11,8 @@
     <string name="notes">ملاحظات</string>
     <string name="edit_travel">تعديل رحلة</string>
     <string name="no_travels_found">لم يتم العثور على رحلات</string>
+    <string name="OK">موافق</string>
+    <string name="cancel">الغاء</string>
+    <string name="confirm_delete_travel_title">حذف رحلة</string>
+    <string name="confirm_delete_travel_message">هل انت متأكد ؟</string>
 </resources>
