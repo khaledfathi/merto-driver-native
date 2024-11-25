@@ -7,4 +7,8 @@
     <color name="notes_icon">#ffffff</color>
     <color name="train_icon">#ffffff</color>
     <color name="train_units_icon">#ffffff</color>
+
+    <!--Confirm Dialog-->
+    <color name="confirm_dialog_bg">#757575</color>
+    <color name="confirm_dialog_text">#FFFFFF</color>
 </resources>

@@ -2,7 +2,6 @@ package com.metro_driver.app.presentation.fragments
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +10,6 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
 import com.metro_driver.app.databinding.FragmentAddTravelBinding
 import com.metro_driver.app.presentation.viewmodel.MainActivityViewModel
-import com.metro_driver.core.general.debugPrint
 
 
 class AddTravelFragment : Fragment() {

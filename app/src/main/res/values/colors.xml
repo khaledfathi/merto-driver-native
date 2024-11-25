@@ -14,4 +14,9 @@
     <color name="notes_icon">#000000</color>
     <color name="train_icon">#000000</color>
     <color name="train_units_icon">#000000</color>
+
+    <!--Confirm Dialog-->
+    <color name="confirm_dialog_bg">#DCDCDC</color>
+    <color name="confirm_dialog_text">#000000</color>
+
 </resources>
