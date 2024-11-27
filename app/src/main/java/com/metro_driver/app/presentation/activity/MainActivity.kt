@@ -3,7 +3,6 @@ package com.metro_driver.app.presentation.activity
 import android.content.Context
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
-import androidx.annotation.DrawableRes
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.get
@@ -39,7 +38,16 @@ class MainActivity : BaseActivity() {
     /*##### CORE #####*/
     private fun init() {
         setNightModeState()
+        setEvents()
+    }
+
+    private fun setEvents() {
         eventToolbarNightModeButtonClick()
+        eventOpenDrawer()
+        eventDrawerOptionBackupClick()
+        eventDrawerOptionTravelsTableClick()
+        eventDrawerOptionVacationsClick()
+        eventDrawerOptionAboutClick()
     }
 
     /**
@@ -57,6 +65,41 @@ class MainActivity : BaseActivity() {
             _viewModel.toggleNightAndDayMode(this)
             true
         }
+    }
+
+    private fun eventOpenDrawer() {
+        _binding.toolbar.setNavigationOnClickListener {
+            _binding.drawer.open();
+        }
+    }
+
+    private fun eventDrawerOptionBackupClick() {
+        val x = _binding.backupOption.setOnClickListener {
+            actionCloseDrawer()
+        }
+    }
+
+    private fun eventDrawerOptionTravelsTableClick() {
+        val x = _binding.travelsTableOption.setOnClickListener {
+            actionCloseDrawer()
+        }
+    }
+
+    private fun eventDrawerOptionVacationsClick() {
+        val x = _binding.vacationsOption.setOnClickListener {
+            actionCloseDrawer()
+        }
+    }
+
+    private fun eventDrawerOptionAboutClick() {
+        val x = _binding.aboutOption.setOnClickListener {
+            actionCloseDrawer()
+        }
+    }
+
+    /*##### Actions #####*/
+    private fun actionCloseDrawer() {
+        _binding.drawer.close();
     }
 
 }

@@ -13,7 +13,7 @@ android {
         applicationId = "com.metro_driver.app"
         minSdk = 26
         targetSdk = 34
-        versionCode = 1
+        versionCode = 7
         versionName = "2.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -26,6 +26,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
     compileOptions {

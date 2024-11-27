@@ -15,4 +15,9 @@
     <string name="cancel">الغاء</string>
     <string name="confirm_delete_travel_title">حذف رحلة</string>
     <string name="confirm_delete_travel_message">هل انت متأكد ؟</string>
+    <string name="option_icon">ايكونة صورة</string>
+    <string name="backup">النسخ الاحتياطى</string>
+    <string name="travels">الرحلات 2024/2025</string>
+    <string name="vacations">الاجازات</string>
+    <string name="about">عن التطبيق</string>
 </resources>

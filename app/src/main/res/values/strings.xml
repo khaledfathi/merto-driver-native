@@ -15,5 +15,12 @@
     <string name="confirm_delete_travel_title">Delete Travel</string>
     <string name="confirm_delete_travel_message">Are you sure ? </string>
 
+    <!--image description-->
+    <string name="option_icon">option icon</string>
+    <string name="backup">Backup</string>
+    <string name="travels">Travels 2024/2025</string>
+    <string name="vacations">Vacations</string>
+    <string name="about">About</string>
+
 
 </resources>
