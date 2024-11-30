@@ -1,6 +1,7 @@
 package com.metro_driver.app.presentation.activity
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
@@ -17,6 +18,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.metro_driver.app.R
 import com.metro_driver.app.databinding.ActivityMainBinding
+import com.metro_driver.app.presentation.fragments.HomeFragment
 import com.metro_driver.app.presentation.viewmodel.MainActivityViewModel
 import com.metro_driver.core.general.DATASTORE_FILE
 import com.metro_driver.core.general.debugPrint
@@ -51,7 +53,6 @@ class MainActivity : BaseActivity() {
         }
         init()
     }
-
 
     /*##### CORE #####*/
     private fun init() {
@@ -93,6 +94,7 @@ class MainActivity : BaseActivity() {
     private fun eventOnMenuTravelsClick() {
         _binding.draweNavigation.menu[TRAVELS_OPTION].setOnMenuItemClickListener {
             actionCloseDrawer()
+            startActivity(Intent(this, YearlyTravelsActivity::class.java))
             true
         }
     }
@@ -100,6 +102,7 @@ class MainActivity : BaseActivity() {
     private fun eventOnMenuVacationClick() {
         _binding.draweNavigation.menu[VACATION_OPTION].setOnMenuItemClickListener {
             actionCloseDrawer()
+            startActivity(Intent(this, VacationsActivity::class.java))
             true
         }
     }

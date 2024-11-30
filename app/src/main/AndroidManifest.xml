@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,6 +15,12 @@
         android:theme="@style/Theme.Metro_driver_native"
         tools:targetApi="31">
         <activity
+            android:name=".presentation.activity.VacationsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.activity.YearlyTravelsActivity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.activity.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait"
@@ -23,10 +31,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-1293282169555902~5540090261"/>
+            android:value="ca-app-pub-1293282169555902~5540090261" />
     </application>
 
-    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
 </manifest>
