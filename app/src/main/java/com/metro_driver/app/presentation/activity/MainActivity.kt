@@ -2,20 +2,38 @@ package com.metro_driver.app.presentation.activity
 
 import android.content.Context
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.children
 import androidx.core.view.get
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavHostController
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
+import com.metro_driver.app.R
 import com.metro_driver.app.databinding.ActivityMainBinding
 import com.metro_driver.app.presentation.viewmodel.MainActivityViewModel
 import com.metro_driver.core.general.DATASTORE_FILE
+import com.metro_driver.core.general.debugPrint
 
 //prepare datastore
 val Context.dataStore by preferencesDataStore(DATASTORE_FILE)
 
 class MainActivity : BaseActivity() {
+    //toolbar option
+    private val THEME_MODE_OPTION = 0
+
+    //drawer options index
+    private val TRAVELS_OPTION = 0
+    private val VACATION_OPTION = 1
+    private val ABOUT_OPTION = 2
+
+    //
     private lateinit var _binding: ActivityMainBinding
     private lateinit var _viewModel: MainActivityViewModel
 
@@ -44,10 +62,9 @@ class MainActivity : BaseActivity() {
     private fun setEvents() {
         eventToolbarNightModeButtonClick()
         eventOpenDrawer()
-        eventDrawerOptionBackupClick()
-        eventDrawerOptionTravelsTableClick()
-        eventDrawerOptionVacationsClick()
-        eventDrawerOptionAboutClick()
+        eventOnMenuTravelsClick()
+        eventOnMenuVacationClick()
+        eventOnMenuAboutClick()
     }
 
     /**
@@ -55,7 +72,7 @@ class MainActivity : BaseActivity() {
      */
     private fun setNightModeState() {
         _viewModel.setNightModeState(this)
-        _binding.toolbar.menu[0].setIcon(_viewModel.getThemeIcon())
+        _binding.toolbar.menu[THEME_MODE_OPTION].setIcon(_viewModel.getThemeIcon())
     }
 
 
@@ -69,37 +86,35 @@ class MainActivity : BaseActivity() {
 
     private fun eventOpenDrawer() {
         _binding.toolbar.setNavigationOnClickListener {
-            _binding.drawer.open();
+            _binding.drawerLayout.open();
         }
     }
 
-    private fun eventDrawerOptionBackupClick() {
-        val x = _binding.backupOption.setOnClickListener {
+    private fun eventOnMenuTravelsClick() {
+        _binding.draweNavigation.menu[TRAVELS_OPTION].setOnMenuItemClickListener {
             actionCloseDrawer()
+            true
         }
     }
 
-    private fun eventDrawerOptionTravelsTableClick() {
-        val x = _binding.travelsTableOption.setOnClickListener {
+    private fun eventOnMenuVacationClick() {
+        _binding.draweNavigation.menu[VACATION_OPTION].setOnMenuItemClickListener {
             actionCloseDrawer()
+            true
         }
     }
 
-    private fun eventDrawerOptionVacationsClick() {
-        val x = _binding.vacationsOption.setOnClickListener {
+    private fun eventOnMenuAboutClick() {
+        actionCloseDrawer()
+        _binding.draweNavigation.menu[ABOUT_OPTION].setOnMenuItemClickListener {
             actionCloseDrawer()
-        }
-    }
-
-    private fun eventDrawerOptionAboutClick() {
-        val x = _binding.aboutOption.setOnClickListener {
-            actionCloseDrawer()
+            true
         }
     }
 
     /*##### Actions #####*/
     private fun actionCloseDrawer() {
-        _binding.drawer.close();
+        _binding.drawerLayout.close();
     }
 
 }

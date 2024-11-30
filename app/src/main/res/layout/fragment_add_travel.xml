@@ -30,18 +30,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/delete_image_button"
-        android:layout_width="@dimen/semi_bar_icon_width"
-        android:layout_height="@dimen/semi_bar_icon_height"
-        android:background="@android:color/transparent"
-        android:src="@drawable/delete_icon"
-        app:layout_constraintBottom_toBottomOf="@id/page_title"
-        app:layout_constraintEnd_toStartOf="@id/save_image_button"
-        app:layout_constraintHorizontal_bias="0.9"
-        app:layout_constraintStart_toEndOf="@id/page_title"
-        app:layout_constraintTop_toTopOf="@id/page_title" />
-
-    <ImageButton
         android:id="@+id/save_image_button"
         android:layout_width="@dimen/semi_bar_icon_width"
         android:layout_height="@dimen/semi_bar_icon_height"
